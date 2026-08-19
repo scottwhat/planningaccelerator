@@ -8,8 +8,8 @@ auto-drafts the strategy notes and letters to back it up.
 
 ## What's in this repo
 
-- `docs/index.html` — the app itself. Served directly by GitHub Pages (Pages is configured to
-  deploy from the `main` branch's `/docs` folder) — there is no build step.
+- `index.html` — the app itself. Served directly by GitHub Pages (Pages is configured to
+  deploy from the `main` branch's root) — there is no build step.
 - `meconebrainmastermind (1).md` — the original strategy spec the tool's content is derived from
   (lifecycle stages, buy-in matrix, playbook library, worked example).
 - `pitch-deck-brief.md` — source material for a two-slide pitch deck introducing the tool and its
@@ -18,11 +18,10 @@ auto-drafts the strategy notes and letters to back it up.
 
 ## Running it locally
 
-No dependencies beyond two Google Fonts stylesheets. Either open `docs/index.html` directly in a
+No dependencies beyond two Google Fonts stylesheets. Either open `index.html` directly in a
 browser, or serve it locally:
 
 ```
-cd docs
 python3 -m http.server
 ```
 

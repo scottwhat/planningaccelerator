@@ -10,13 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   (Stage 0–7), a buy-in matrix of stakeholders to engage at each stage, and a playbook library of
   codified strategic plays. It is the source of truth for the *content* in the proof-of-concept
   site below (stage intelligence, buy-in matrix, playbooks, worked example) — when the spec
-  changes, the corresponding data array in `docs/index.html` should be updated to match. The site
+  changes, the corresponding data array in `index.html` should be updated to match. The site
   itself is deliberately de-branded from the spec's "Mecone Brain" framing into a generic,
   firm-agnostic tool — do not reintroduce "Mecone" or "the Brain" as product names in the UI or
   generated documents; use "the firm" / "internal" phrasing instead so any consultancy could use it.
-- `docs/index.html` — a single-file, no-build proof-of-concept web app: the **Planning Development
-  Accelerator**. It lives in `docs/` (rather than `site/`) so it can be served directly by GitHub
-  Pages with no build step — Pages is configured to deploy from the `main` branch's `/docs` folder.
+- `index.html` — a single-file, no-build proof-of-concept web app: the **Planning Development
+  Accelerator**. It sits at the repo root so it can be served directly by GitHub Pages with no
+  build step — Pages is configured to deploy from the `main` branch's root.
   It lets a planning consultant create a project, step it through Stages 0–7 via a horizontal
   timeline strip under the project filebar, and at each stage see tracked signals, insights,
   who-to-consult list, and a codified play in the stage dossier. Below the dossier, Key people &
@@ -44,14 +44,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   AI-pipeline diagram slide) covering this tool. Update it if the tool's capabilities or the AI
   roadmap framing change materially; it's a content brief, not app documentation.
 
-There is no package manifest, build system, linter, or test suite. `docs/index.html` has no
+There is no package manifest, build system, linter, or test suite. `index.html` has no
 dependencies beyond two Google Fonts stylesheets loaded via `<link>` — open it directly in a
-browser, or serve it locally with e.g. `python3 -m http.server` from `docs/`. There is nothing to
+browser, or serve it locally with e.g. `python3 -m http.server` from the repo root. There is nothing to
 build, lint, or test. The repo is published at https://github.com/scottwhat/planningaccelerator
 and served live via GitHub Pages at https://scottwhat.github.io/planningaccelerator/ — pushing to
 `main` redeploys the live page automatically.
 
-## Architecture of `docs/index.html`
+## Architecture of `index.html`
 
 Everything lives in one file: inline `<style>`, inline `<script>`, no external JS/CSS besides
 fonts. State model, defined at the top of the script:
@@ -80,10 +80,10 @@ adding a new persisted field so both blank and seeded projects stay consistent.
 ## Working in this repository
 
 - Treat requests to edit the spec markdown as document authoring, not software engineering.
-- Treat requests to change the mapper as normal frontend work on `docs/index.html` — keep it a
+- Treat requests to change the mapper as normal frontend work on `index.html` — keep it a
   single dependency-free file unless the user asks for a real build setup.
 - If a change adds a new stage field, buy-in row, or playbook, update both the spec markdown and
-  the corresponding data array in `docs/index.html` so they stay in sync.
+  the corresponding data array in `index.html` so they stay in sync.
 - This is a real git repository with a GitHub remote (`origin` → scottwhat/planningaccelerator).
   Follow the standard git safety rules: only commit/push when asked, never force-push without
   explicit confirmation, and don't rewrite published history.
