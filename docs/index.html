@@ -240,6 +240,23 @@
   .panel-head .hint{ font-size:11px; color:var(--ink-faint); font-family:var(--font-mono); }
   .panel-pad{ padding:16px 20px 20px; }
 
+  /* highlighted panels — buy-in matrix, playbook library */
+  .panel-highlight{ border:1px solid var(--accent); box-shadow:0 0 0 1px var(--accent-tint), var(--shadow); }
+
+  /* compact panels — key people, feasibility watch */
+  .panel-compact .panel-head{ padding:12px 16px; }
+  .panel-compact .panel-head h3{ font-size:14.5px; }
+  .panel-compact .panel-pad{ padding:12px 16px 16px; }
+  .panel-compact .microlabel{ font-size:10px; margin-bottom:4px; }
+  .panel-compact .people-list{ gap:9px; }
+  .panel-compact .people-row{ gap:6px; }
+  .panel-compact .people-row input{ padding:5px 7px; font-size:11.5px; }
+  .panel-compact .role-label{ font-size:10px; }
+  .panel-compact .chip-toggle{ padding:4px 9px; font-size:10.5px; }
+  .panel-compact .feas-list{ gap:6px; margin-bottom:12px; }
+  .panel-compact .feas-item{ font-size:12px; gap:7px; }
+  .panel-compact .feas-notes textarea{ min-height:60px; font-size:11.5px; padding:7px 9px; }
+
   /* ---------- project intelligence ---------- */
   .people-list{ display:flex; flex-direction:column; gap:12px; }
   .people-row{ display:grid; grid-template-columns:150px 1fr 1.2fr; gap:8px; align-items:center; }
@@ -438,7 +455,26 @@
   <section class="dossier" id="dossier"></section>
 
   <div class="main-columns">
-    <section class="panel" id="people-panel">
+    <section class="panel panel-highlight buyin-panel">
+      <div class="panel-head">
+        <h3>Buy-in matrix</h3>
+        <div class="progress-wrap">
+          <div class="progress-track"><div class="progress-fill" id="buyin-progress-fill" style="width:0%;"></div></div>
+          <span class="progress-label" id="buyin-progress-label">0 / 10 engaged</span>
+        </div>
+      </div>
+      <div class="buyin-wrap"><table class="buyin" id="buyin-table"></table></div>
+    </section>
+
+    <section class="panel panel-highlight playbooks">
+      <div class="panel-head" style="flex-direction:column; align-items:flex-start;">
+        <h3>Playbook library</h3>
+        <p>Codified plays, fired by stage and condition. Cards outlined in brass are relevant to the stage you're viewing.</p>
+      </div>
+      <div class="pb-list" id="pb-list"></div>
+    </section>
+
+    <section class="panel panel-compact" id="people-panel">
       <div class="panel-head">
         <h3>Key people &amp; alignment</h3>
         <span class="hint">agency personnel sheet</span>
@@ -453,7 +489,7 @@
       </div>
     </section>
 
-    <section class="panel" id="feas-panel">
+    <section class="panel panel-compact" id="feas-panel">
       <div class="panel-head">
         <h3>Feasibility watch</h3>
         <span class="feas-status" id="feas-status"></span>
@@ -466,25 +502,6 @@
           <textarea id="feas-notes-input" placeholder="Walk away if... key numbers, thresholds, what would kill this deal."></textarea>
         </div>
       </div>
-    </section>
-
-    <section class="panel buyin-panel">
-      <div class="panel-head">
-        <h3>Buy-in matrix</h3>
-        <div class="progress-wrap">
-          <div class="progress-track"><div class="progress-fill" id="buyin-progress-fill" style="width:0%;"></div></div>
-          <span class="progress-label" id="buyin-progress-label">0 / 10 engaged</span>
-        </div>
-      </div>
-      <div class="buyin-wrap"><table class="buyin" id="buyin-table"></table></div>
-    </section>
-
-    <section class="panel playbooks">
-      <div class="panel-head" style="flex-direction:column; align-items:flex-start;">
-        <h3>Playbook library</h3>
-        <p>Codified plays, fired by stage and condition. Cards outlined in brass are relevant to the stage you're viewing.</p>
-      </div>
-      <div class="pb-list" id="pb-list"></div>
     </section>
   </div>
 
